@@ -1,5 +1,5 @@
-/*
- * presets.js — representative frame geometry + component setups.
+﻿/*
+ * presets.js - representative frame geometry + component setups.
  * Values follow typical manufacturer geometry charts for each category.
  * Add your own bike: copy an entry and fill in the chart numbers.
  */
@@ -13,7 +13,7 @@ export const PRESETS = {
     },
     components: {
       beadSeat: 622, tireWidth: 28, spacers: 15, headsetTopCap: 10,
-      stemLength: 100, stemAngle: -6, barReach: 75, barRise: 0,
+      stemLength: 100, stemAngle: -6, barReach: 75, barDrop: 130, barRise: 0,
       saddleHeight: 730, saddleSetback: 20, saddleLength: 270,
       crankLength: 172.5, stemClampHeight: 40,
     },
@@ -26,7 +26,7 @@ export const PRESETS = {
     },
     components: {
       beadSeat: 622, tireWidth: 32, spacers: 25, headsetTopCap: 10,
-      stemLength: 90, stemAngle: -6, barReach: 70, barRise: 0,
+      stemLength: 90, stemAngle: -6, barReach: 70, barDrop: 130, barRise: 0,
       saddleHeight: 730, saddleSetback: 15, saddleLength: 270,
       crankLength: 172.5, stemClampHeight: 40,
     },
@@ -39,7 +39,7 @@ export const PRESETS = {
     },
     components: {
       beadSeat: 622, tireWidth: 42, spacers: 20, headsetTopCap: 10,
-      stemLength: 90, stemAngle: -6, barReach: 70, barRise: 0,
+      stemLength: 90, stemAngle: -6, barReach: 70, barDrop: 115, barRise: 0,
       saddleHeight: 720, saddleSetback: 15, saddleLength: 270,
       crankLength: 172.5, stemClampHeight: 40,
     },
@@ -52,7 +52,7 @@ export const PRESETS = {
     },
     components: {
       beadSeat: 622, tireWidth: 57, spacers: 20, headsetTopCap: 10,
-      stemLength: 60, stemAngle: 0, barReach: 0, barRise: 15,
+      stemLength: 60, stemAngle: 0, barReach: 0, barDrop: 0, barRise: 15,
       saddleHeight: 730, saddleSetback: 10, saddleLength: 270,
       crankLength: 170, stemClampHeight: 40,
     },
@@ -65,7 +65,7 @@ export const PRESETS = {
     },
     components: {
       beadSeat: 622, tireWidth: 63, spacers: 20, headsetTopCap: 10,
-      stemLength: 45, stemAngle: 0, barReach: 0, barRise: 20,
+      stemLength: 45, stemAngle: 0, barReach: 0, barDrop: 0, barRise: 20,
       saddleHeight: 730, saddleSetback: 5, saddleLength: 270,
       crankLength: 170, stemClampHeight: 40,
     },
@@ -78,7 +78,7 @@ export const PRESETS = {
     },
     components: {
       beadSeat: 622, tireWidth: 40, spacers: 30, headsetTopCap: 10,
-      stemLength: 80, stemAngle: 10, barReach: 0, barRise: 25,
+      stemLength: 80, stemAngle: 10, barReach: 0, barDrop: 0, barRise: 25,
       saddleHeight: 700, saddleSetback: 10, saddleLength: 270,
       crankLength: 170, stemClampHeight: 40,
     },

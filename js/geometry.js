@@ -121,10 +121,17 @@ export function computeBike(frame, components) {
     x: stemClamp.x + Math.cos(stemDir) * c.stemLength,
     y: stemClamp.y + Math.sin(stemDir) * c.stemLength,
   };
-  // Hand position: bar reach forward, bar rise up (road: rise 0, reach ~75).
+  // Hand positions, following the standard fit convention (BB-origin):
+  // Handlebar X/Y = bar center at the stem clamp; Effective Bar Y adds bar
+  // rise; drops = (HX + bar reach, Effective Bar Y - bar drop).
+  const effectiveBarY = barClamp.y + c.barRise;
   const gripCenter = {
     x: barClamp.x + c.barReach,
-    y: barClamp.y + c.barRise,
+    y: effectiveBarY,
+  };
+  const drops = {
+    x: barClamp.x + c.barReach,
+    y: effectiveBarY - (c.barDrop ?? 0),
   };
 
   // --- Fit metrics ---------------------------------------------------------
@@ -164,7 +171,7 @@ export function computeBike(frame, components) {
     points: {
       bb: { x: 0, y: 0 },
       rearAxle, frontAxle, htTop, htBottom, stemClamp, barClamp,
-      gripCenter, saddleTop, seatTubeTop,
+      gripCenter, drops, saddleTop, seatTubeTop,
       groundY,
     },
     derived: {
@@ -180,6 +187,8 @@ export function computeBike(frame, components) {
       standover,
       overallLength,
       overallHeight,
+      handlebarX: barClamp.x,
+      handlebarY: barClamp.y,
       saddleBarDrop,
       saddleBarReach,
       saddleTipToBar: saddleBarReach - (c.saddleLength ?? 270) / 2,

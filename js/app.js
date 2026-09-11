@@ -25,6 +25,7 @@ const COCKPIT_FIELDS = [
   ['spacers', 'Spacers under stem', 'mm', 1],
   ['headsetTopCap', 'Headset top cap', 'mm', 1],
   ['barReach', 'Bar reach (drop bars)', 'mm', 1],
+  ['barDrop', 'Bar drop (drop bars)', 'mm', 1],
   ['barRise', 'Bar rise (flat bars)', 'mm', 1],
 ];
 const SADDLE_FIELDS = [
@@ -133,6 +134,8 @@ const RESULT_ROWS = [
   ['standover', 'Standover (approx.)', false],
   ['saddleHeightAboveGround', 'Saddle height (ground)', false],
   ['barHeightAboveGround', 'Bar height (ground)', false],
+  ['handlebarX', 'Handlebar X (fit HX)', false],
+  ['handlebarY', 'Handlebar Y (fit HY)', false],
   ['saddleBarDrop', 'Saddle–bar drop', false],
   ['saddleBarReach', 'Saddle–bar reach', false],
   ['wheelDiameter', 'Wheel outer diameter', false],
@@ -239,12 +242,13 @@ function render(bike) {
   tube(P.stemClamp, P.barClamp, 16);
   el('circle', { cx: X(P.barClamp.x), cy: Y(P.barClamp.y), r: 12, fill: FRAME });
   if (state.components.barReach > 5) {
-    // drop bar: forward reach then a hook down
+    // drop bar: forward reach, then a hook down to the drops position
     const hx = P.gripCenter.x, hy = P.gripCenter.y;
+    const bd = Math.max(60, state.components.barDrop ?? 130);
     el('path', {
       d: `M ${X(P.barClamp.x)} ${Y(P.barClamp.y)} L ${X(hx)} ${Y(hy)}
-          Q ${X(hx + 35)} ${Y(hy - 10)}, ${X(hx + 25)} ${Y(hy - 70)}
-          Q ${X(hx + 15)} ${Y(hy - 115)}, ${X(hx - 35)} ${Y(hy - 120)}`,
+          Q ${X(hx + 35)} ${Y(hy - bd * 0.1)}, ${X(hx + 25)} ${Y(hy - bd * 0.55)}
+          Q ${X(hx + 15)} ${Y(hy - bd * 0.95)}, ${X(P.drops.x - 35)} ${Y(P.drops.y)}`,
       fill: 'none', stroke: FRAME, 'stroke-width': 12, 'stroke-linecap': 'round' });
   } else {
     // flat/riser bar seen from the side: short rise
