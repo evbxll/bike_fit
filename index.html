@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bike Fit Calculator</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header>
+  <h1>Bike Fit Calculator</h1>
+  <p>Enter a manufacturer geometry chart + your components — see the whole bike, measured.</p>
+</header>
+
+<div class="layout">
+  <div id="controls">
+    <div class="panel">
+      <h2>Setup</h2>
+      <div class="row">
+        <label for="preset">Preset</label>
+        <select id="preset"></select>
+      </div>
+      <div class="toolbar" style="margin:10px 0 0">
+        <span class="seg" id="unitSeg">
+          <button data-u="mm" class="on">mm</button>
+          <button data-u="in">inches</button>
+        </span>
+        <button id="resetBtn" type="button">Reset to preset</button>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Frame chart</h2>
+      <div id="frameInputs"></div>
+    </div>
+
+    <div class="panel">
+      <h2>Wheels &amp; tires</h2>
+      <div id="wheelInputs"></div>
+    </div>
+
+    <div class="panel">
+      <h2>Cockpit</h2>
+      <div id="cockpitInputs"></div>
+    </div>
+
+    <div class="panel">
+      <h2>Saddle &amp; drivetrain</h2>
+      <div id="saddleInputs"></div>
+    </div>
+  </div>
+
+  <div>
+    <div class="panel" id="drawingPanel">
+      <svg id="drawing" role="img" aria-label="Side-view drawing of the bike with dimensions"></svg>
+    </div>
+    <div class="panel" style="margin-top:12px">
+      <h2>Derived dimensions</h2>
+      <div class="results-grid" id="results"></div>
+      <div id="warnings"></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  Stack &amp; reach locate the head-tube top from the bottom bracket; everything else is derived
+  from the chart values, the steering axis, and your component stack-up. Standover uses a
+  horizontal-top-tube approximation. All inputs in mm and degrees, matching how charts are published.
+</footer>
+
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
